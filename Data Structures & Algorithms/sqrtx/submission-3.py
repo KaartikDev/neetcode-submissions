@@ -1,0 +1,19 @@
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        if x==0:
+            return 0
+        left = 1
+        right = x//2+1 #after x=0.5, the sqrt will always be smaller than 0.5x
+        valid_res = 0
+        print("x=",x)
+        while left <= right:
+            mid = (left+right)//2
+            print("l=",left,"r=",right,"mid=",mid,"mid_sq=",mid*mid)
+
+            if (mid*mid) > x:
+                right = mid-1
+            else:
+                valid_res = mid
+                left = mid + 1
+        
+        return valid_res
